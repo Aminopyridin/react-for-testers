@@ -1,0 +1,39 @@
+body {
+  font-family: "Segoe UI", Helvetica, sans-serif;
+}
+
+.formRow {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.label {
+  display: inline-block;
+  width: 200px;
+  line-height: 32px;
+}
+
+.input {
+  box-sizing: border-box;
+  width: 200px;
+  height: 32px;
+  padding: 5px;
+  font-size: 16px;
+
+}
+
+.button {
+  font-size: 16px;
+  padding: 7px;
+  margin: 10px 0;
+}
+
+.react {
+  padding: 10px;
+  background-color: lightyellow;
+}
+
+.radio {
+  display: inline-block;
+  margin: 0 30px 0 10px;
+}
