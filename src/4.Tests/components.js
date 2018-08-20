@@ -75,7 +75,7 @@ export class Row extends React.Component {
     onClick = () => {
         const { name, surname, date } = this.props;
 
-        this.props.onChange(name, surname, date);
+        this.props.onChange(surname, name, date);
     };
 }
 

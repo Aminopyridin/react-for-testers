@@ -1,162 +1,52 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link rel="stylesheet" href="reveal/css/reveal.css">
-    <link rel="stylesheet" href="reveal/css/theme/kontur-light.css" id="theme">
-    <!-- Theme used for syntax highlighting of code -->
-    <link rel="stylesheet" href="reveal/css/highlight/idea-for-light.css">
-    <link rel="stylesheet" href="reveal/css/highlight/darkula-for-dark.css">
-    <!--[if lt IE 9]>
-    <script src="reveal/js/html5shiv.js"></script>
-    <![endif]-->
-	<script defer src="reveal/js/head.min.js"></script>
-	<script defer src="reveal/js/reveal.js"></script>
-	<script defer src="reveal/initialize.js"></script>
-	<script defer src="reveal/js/d3.min.js"></script>
+  <title>React</title>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      font-family: arial sans-serif;
+    }
 
-    <style>
-		.fragment-container {
-			position: relative;
-		}
-		
-		.fragment-container .fragment {
-			position: absolute;
-			top: 0px;
-			width: 100%;
-		}
+    #container {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
 
-        .tools.tools {
-          margin: -30% auto 0;
-          height: 100vh;
-          display: block;
-        }
-    </style>
-	
-	<title>React</title>
+    #tasks div {
+      margin: 10px 5px;
+    }
+
+    #tasks a {
+      font-size: 20px;
+      text-decoration: none;
+    }
+  </style>
 </head>
+
 <body>
+  <div id="container">
+    <h1>React</h1>
+    <div id="tasks"></div>
+  </div>
+  <script src="tasks.js"></script>
+  <script>
+      function onload() {
+          var $tasks = document.getElementById('tasks');
+          for (var i = 0; i < tasks.length; i++) {
+              var task = tasks[i];
+              var $task = document.createElement('div');
+              var url = task.order + '.' + task.id;
+              var text = task.order + '.&nbsp;' + task.id;
+              $task.innerHTML = '<a href="' + url + '">' + text + '</a>';
+              $tasks.appendChild($task);
+          }
+      }
 
-<div class="reveal"><div class="slides">
-
-<section data-markdown><script type="text/template">
-
-# React
-
-<p style="text-align: center;"><a href="https://github.com/kontur-courses/react">https://github.com/kontur-courses/<b>react</b></a></p>
-
-</script></section>
-
-<section data-markdown><script type="text/template">
-
-## Сначала самое ~~долгое~~ важное
-
-Скачиваем все необходимые пакеты Node.js:
-```
-cd tasks
-npm install
-```
-
-Затем запусти dev-сервер, чтобы видеть результаты решений задач:
-```cmd
-npm run start
-```
-
-Посмотреть можно будет на <a href="http://localhost:8080">http://localhost:8080</a>
-
-Перестроение автоматическое, пока работает dev-сервер
-
-</script></section>
-
-<section data-markdown><script type="text/template">
-
-## Зачем понадобился React?
-
-***
-
-### Слои HTML, JS, CSS 😫
-
-	HTML =================================
-	CSS  ======
-	JS   ===
-
-Удобно для документов, для данных, но не для приложений
-
-***
-
-### Компонентный подход 😍
-
-```js
-HTML+CSS+JS   |   HTML+CSS+JS   |   HTML+CSS+JS
-```
-
-- Каждый компонент = HTML + JS + CSS
-- Можно комбинировать и переиспользовать!
-- Изолированы: в отличие от обычного CSS
-
-***
-
-### HTML - недоязык 😞
-
-<pre><code class="lang-html hljs">
-&lt;script&gt;
-function handleClick() {
-	...
-}
-&lt;/script&gt;
-
-&lt;input type="button" onclick="handleClick()"/&gt;</code></pre>
-
-Хочется методов и описания обработчиков сразу и рядом
-
-***
-
-### JSX = HTML + JS 😇
-
-```js
-function ButtonWithHandle() {
-    function handleClick() {
-	    ...
-	}
-	
-	return <input type="button" onClick={handleClick}/>
-}
-```
-
-***
-
-### DOM медленный 😕
-
-А вот JavaScript — быстрый за счет JIT-компиляции!
-
-***
-
-### VirtualDOM — берет на себя упячку 😎
-
-И обновляет DOM когда на самом деле что-то поменялось
-
-***
-
-### Только View в MV* 🔨
-
-React решает одну проблему и делает это хорошо
-
-</script></section>
-
-
-<!-- ************************************************* -->
-
-<section data-markdown><script type="text/template">
-
-## Посмотрим вживую
-
-
-
-</script></section>
-
-
-			
-</div></div>
+      window.addEventListener('load', onload);
+  </script>
 </body>
+
 </html>

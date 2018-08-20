@@ -7,8 +7,13 @@ import { Page, Table, Row } from './components';
 configure({ adapter: new Adapter() });
 
 /**
- *  1. Напиши тесты для таблицы.
- *  2. Давай придумаем, что еще можно протестировать!
+ *  1. Сейчас два теста не работают. Почини их!
+ *   - 'click with right argument' — этот тест написан правильно, проблема в компоненте
+ *   - 'right amount of click' — тут ошибка в тесте
+ *  2. Напиши тесты для таблицы.
+ *   - С несколькими строчками
+ *   - С одной строчкой
+ *   - С нулем строчек
  */
 
 describe('<Page>', () => {
@@ -32,7 +37,13 @@ describe('<Row>', () => {
 
         const wrapper = shallow(<Row name='I' surname='b' date='2015-01-02' onChange={mockOnClick} />);
         wrapper.find('button').simulate('click');
-        expect(mockOnClick).toHaveBeenCalledTimes(1);
         expect(mockOnClick).toHaveBeenCalledWith('I', 'b', '2015-01-02');
+    });
+    test('right amount of click', () => {
+        let mockOnClick = jest.fn();
+
+        const wrapper = shallow(<Row name='I' surname='b' date='2015-01-02' onChange={mockOnClick} />);
+        wrapper.find('button').simulate('click');
+        expect(mockOnClick).toHaveBeenCalledTimes(10);
     });
 });
