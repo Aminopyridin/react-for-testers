@@ -8,8 +8,8 @@ configure({ adapter: new Adapter() });
 
 /**
  *  1. Сейчас два теста не работают. Почини их!
- *   - 'click with right argument' — этот тест написан правильно, проблема в компоненте
- *   - 'right amount of click' — тут ошибка в тесте
+ *   - 'click with right arguments' — этот тест написан правильно, проблема в компоненте
+ *   - 'right amount of clicks' — тут ошибка в тесте
  *  2. Напиши тесты для таблицы.
  *   - С несколькими строчками
  *   - С одной строчкой
@@ -32,14 +32,14 @@ describe('<Row>', () => {
         const wrapper = shallow(<Row name='I' surname='b' date='2015-01-02' />);
         expect(wrapper.find('td').length).toBe(4);
     });
-    test('click with right argument', () => {
+    test('click with right arguments', () => {
         let mockOnClick = jest.fn();
 
         const wrapper = shallow(<Row name='I' surname='b' date='2015-01-02' onChange={mockOnClick} />);
         wrapper.find('button').simulate('click');
         expect(mockOnClick).toHaveBeenCalledWith('I', 'b', '2015-01-02');
     });
-    test('right amount of click', () => {
+    test('right amount of clicks', () => {
         let mockOnClick = jest.fn();
 
         const wrapper = shallow(<Row name='I' surname='b' date='2015-01-02' onChange={mockOnClick} />);

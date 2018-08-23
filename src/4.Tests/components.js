@@ -38,14 +38,17 @@ export class Table extends React.Component {
                 </thead>
                 <tbody>
                 {this.props.list.map(item =>
-                    <Row name={item.name} surname={item.surname} date={item.date} key={item.name + item.surname} />
+                    <Row name={item.name} surname={item.surname}
+                         date={item.date} key={item.name + item.surname}
+                         onChange={this.onChange}
+                    />
                 )}
                 </tbody>
             </table>
         );
     }
 
-    onChange = (value) => {
+    onChange = (...value) => {
         console.log(value);
     };
 }
